@@ -12,14 +12,18 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 5
   username: root
-  password:
+  password: judy0523
   socket: /tmp/mysql.sock
 
 development:
-  <<: *default
-  database: chat_app_development
+  adapter: mysql2
+  encoding: utf8mb4
+  database: chat_app_development   # データベース名を正しく設定
+  username: root                 # デフォルトでは 'root'
+  password: judy0523                      # 初期設定ではパスワードなし
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
